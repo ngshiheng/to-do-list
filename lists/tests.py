@@ -1,6 +1,6 @@
 from lists.models import Item
 from django.urls import resolve
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.http import HttpRequest
 from django.template.loader import render_to_string
 from lists.views import home_page
@@ -9,16 +9,9 @@ from lists.views import home_page
 class HomePageTest(TestCase):
 
 	def test_uses_home_template(self):
-		response = self.client.get('/')
+		c = Client()
+		response = c.get('/')
 		self.assertTemplateUsed(response, 'home.html')
-
-	# def test_home_page_returns_correct_html(self):
-	# 	response = self.client.get('/')
-	# 	html = response.content.decode('utf8')
-	# 	self.assertTrue(html.startswith('<html>'))
-	# 	self.assertIn('<title>To-Do lists</title>', html)
-	# 	self.assertTrue(html.endswith('</html>'))
-	# 	self.assertTemplateUsed(response, 'home.html')
 	
 	def test_can_save_a_POST_request(self):
 		self.client.post('/', data={'item_text': 'A new list item'})
