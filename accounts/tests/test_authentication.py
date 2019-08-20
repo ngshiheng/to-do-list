@@ -29,7 +29,7 @@ class AuthenticateTest(TestCase):
         self.assertEqual(user, existing_user)
 
 
-class GetuserTest(TestCase):
+class GetUserTest(TestCase):
 
     def test_gets_user_by_email(self):
         User.objects.create(email='another@example.com')

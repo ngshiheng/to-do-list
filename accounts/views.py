@@ -1,4 +1,3 @@
-import sys
 from django.shortcuts import render, redirect
 from django.core.urlresolvers import reverse
 from django.core.mail import send_mail
