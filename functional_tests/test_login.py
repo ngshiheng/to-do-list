@@ -23,7 +23,7 @@ class LoginTest(FunctionalTest):
         inbox = poplib.POP3_SSL('pop.mail.yahoo.com')
         try:
             inbox.user(test_email)
-            inbox.pass_(os.environ['YAHOO_PASSSWORD'])
+            inbox.pass_(os.environ['YAHOO_PASSWORD'])
             while time.time() - start < 60:
                 # get 10 newest messages
                 count, _ = inbox.stat()
@@ -31,7 +31,8 @@ class LoginTest(FunctionalTest):
                     print('getting msg', i)
                     _, lines, __ = inbox.retr(i)
                     lines = [l.decode('utf8') for l in lines]
-                    if f'Subjects: {subject}' in lines:
+                    print(lines)
+                    if f'Subject: {subject}' in lines:
                         email_id = i
                         body = '\n'.join(lines)
                         return body
@@ -63,7 +64,7 @@ class LoginTest(FunctionalTest):
         body = self.wait_for_email(test_email, SUBJECT)
 
         # It has a url link in it
-        self.assertIn('Use this link to log in', body)
+        self.assertIn('Use this link to log in:', body)
         url_search = re.search(r'http://.+/.+$', body)
         if not url_search:
             self.fail(f'Could not find url in email body:\n{body}')
