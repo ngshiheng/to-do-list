@@ -1,11 +1,7 @@
 from django.conf import settings
-from django.contrib.auth import BACKEND_SESSION_KEY, SESSION_KEY, get_user_model
-from django.contrib.sessions.backends.db import SessionStore
 from .base import FunctionalTest
-from .management.commands.create_session import create_pre_authenticated_session
 from .server_tools import create_session_on_server
-
-User = get_user_model()
+from .management.commands.create_session import create_pre_authenticated_session
 
 
 class MyListsTest(FunctionalTest):
