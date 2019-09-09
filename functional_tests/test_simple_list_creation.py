@@ -40,7 +40,6 @@ class NewVisitorTest(FunctionalTest):
         self.browser.get(self.live_server_url)
         inputbox = self.get_item_input_box()
         self.add_list_item('Buy peacock feathers')
-        self.wait_for_row_in_list_table('1: Buy peacock feathers')
 
         # She notices that her list has a unique URL
         edith_list_url = self.browser.current_url
@@ -63,7 +62,6 @@ class NewVisitorTest(FunctionalTest):
         # than Edith...
         inputbox = self.get_item_input_box()
         self.add_list_item('Buy milk')
-        self.wait_for_row_in_list_table('1: Buy milk')
 
         # Francis gets his own unique URL
         francis_list_url = self.browser.current_url
