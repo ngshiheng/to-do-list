@@ -89,4 +89,5 @@ db.sqlite3
 venv*/
 /static 
 *.pem
-virtualenvfunctional_tests/screendumps/
+virtualenv
+functional_tests/screendumps/
