@@ -1,76 +1,61 @@
 # To-Do List
 
-A simple To-Do list app which helps users organizing their tasks. This app is built based on TDD.
+<a href="https://imgur.com/PHR7uMs"><img src="https://i.imgur.com/PHR7uMs.png" title="source: imgur.com" /></a>
 
-This app is developed and tested on Ubuntu/Windows, deployed using AWS EC2.
+A simple To-Do list app which helps users organizing their tasks. This app is built based on TDD
 
-## Installation
+## Tech Stacks
 
-Required software:
-- Google Chrome web browser
-- Chrome Driver
-- Python 3, Django 1.11 and Selenium 3
+- Django 3.1
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the requirements.
+## Setup (Ubuntu)
 
-## Development (Linux/Windows)
+### Environment Variables
 
-Setting up and activating your Virtualenv:
-```
-cd to-do-list
-python -m venv virtualenv
+```sh
+# SMTP
+export EMAIL_USER="my@gmail.com"
+export EMAIL_PASSWORD="my-secret-password"
 
-# Activate venv on Linux
-source virtualenv/bin/activate 
+# DJANGO
+export DJANGO_SECRET_KEY="my-django-secret"
 
-# Activate venv on Windows
-virtualenv/Scripts/activate
 ```
 
-Installing all the app requirements:
-```
-pip install -r requirements.txt
+### Installation
+
+This project uses [pipenv](https://github.com/pypa/pipenv)
+
+```sh
+# To activate pipenv
+pipenv shell
+
+# To install all the dependencies
+pipenv install --dev
+
 ```
 
-Database migration:
-```
-python manage.py makemigrations
-python manage.py migrate
+### Database migraiton
+
+```sh
+python3 manage.py migrate
+
 ```
 
-Running all functional test + unit tests:
-```
-python manage.py test
-```
+# Contributing
 
-Run on local server:
-```
-python manage.py runserver
-```
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
 
-## Deployment
+## Steps
 
-The deployment of this app is automated using [Fabric](https://docs.fabfile.org/en/1.4.1/index.html).
-```
-$ pip install fabric
-```
+1. Fork this
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
 
-How to use fabric here:
-```
-# fab deploy:host=users@hostname
-# Example:
-fab deploy:host=ubuntu@ip-123-456-host-name
-```
+## Tests
 
-Fabric help:
+```sh
+python3 manage.py test
 ```
-fab --help
-```
-
-## Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-[MIT](https://choosealicense.com/licenses/mit/)
