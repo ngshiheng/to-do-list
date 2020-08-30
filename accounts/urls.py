@@ -1,4 +1,4 @@
-from django.contrib.auth.views import logout
+from django.contrib.auth import logout
 from django.conf.urls import url
 from accounts import views
 
