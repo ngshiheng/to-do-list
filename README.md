@@ -57,5 +57,13 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 ## Tests
 
 ```sh
+
+# Unit Tests (UT) + Functional tests (FT)
 python3 manage.py test
+
+# FT
+python3 manage.py test functional_tests
+
+# UT
+python3 manage.py test lists
 ```
