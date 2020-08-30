@@ -136,3 +136,5 @@ EMAIL_HOST_USER = os.environ.get('EMAIL_USER')
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASSWORD')  # sudo -H vim /etc/environment
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+LOGOUT_REDIRECT_URL = 'home'

@@ -1,87 +1,61 @@
 # To-Do List
 
-A simple To-Do list app which helps users organizing their tasks. This app is built based on TDD.
+<a href="https://imgur.com/PHR7uMs"><img src="https://i.imgur.com/PHR7uMs.png" title="source: imgur.com" /></a>
 
-This app is developed and tested on Ubuntu/Windows, deployed using AWS EC2.
+A simple To-Do list app which helps users organizing their tasks. This app is built based on TDD
 
-## Installation
+## Tech Stacks
 
-Required software:
+- Django 3.1
 
-- Google Chrome web browser
-- Chrome Driver
-- Python 3, Django 3 and Selenium 3
+## Setup (Ubuntu)
 
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install all the requirements.
+### Environment Variables
 
-## Development (Linux/Windows)
+```sh
+# SMTP
+export EMAIL_USER="my@gmail.com"
+export EMAIL_PASSWORD="my-secret-password"
 
-Setting up and activating your Virtualenv:
-
-```
-cd to-do-list
-python -m venv virtualenv
-
-# Activate venv on Linux
-source virtualenv/bin/activate
-
-# Activate venv on Windows
-virtualenv/Scripts/activate
-```
-
-Installing all the app requirements:
+# DJANGO
+export DJANGO_SECRET_KEY="my-django-secret"
 
 ```
-pip install -r requirements.txt
-```
 
-Database migration:
+### Installation
 
-```
-python manage.py makemigrations
-python manage.py migrate
-```
+This project uses [pipenv](https://github.com/pypa/pipenv)
 
-Running all functional test + unit tests:
+```sh
+# To activate pipenv
+pipenv shell
 
-```
-python manage.py test
-```
-
-Run on local server:
+# To install all the dependencies
+pipenv install --dev
 
 ```
-python manage.py runserver
-```
 
-## Deployment
+### Database migraiton
 
-The deployment of this app is automated using [Fabric](https://docs.fabfile.org/en/1.4.1/index.html).
-
-```
-$ pip install fabric
-```
-
-How to use fabric here:
+```sh
+python3 manage.py migrate
 
 ```
-# fab deploy:host=users@hostname
-# Example:
-fab deploy:host=ubuntu@ip-123-456-host-name
+
+# Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change
+
+## Steps
+
+1. Fork this
+2. Create your feature branch (`git checkout -b feature/fooBar`)
+3. Commit your changes (`git commit -am 'Add some fooBar'`)
+4. Push to the branch (`git push origin feature/fooBar`)
+5. Create a new Pull Request
+
+## Tests
+
+```sh
+python3 manage.py test
 ```
-
-Fabric help:
-
-```
-fab --help
-```
-
-## Contributing
-
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
-
-Please make sure to update tests as appropriate.
-
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)
