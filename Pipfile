@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 selenium = "*"
 Fabric3 = "*"
-django = "==3.1"
+django = "==3.1.10"
 
 [dev-packages]
 autopep8 = "*"
